@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Keyword Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1>Search Results</h1><br>
+
+    {% for cityname, events in events.items() %}
+    <h3><u>{{ cityname }}</u></h3>
+
+    {% if events|length > 0 %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>City</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for event in events %}
+        <tr>
+            <td>{{ event[1] }}</td>
+            <td>{{ event[2] }}</td>
+            <td>{{ event[7] }}</td>
+            <td>{{ cityname }}</td>
+            <td>{{ event[3] }}</td>
+            <td>{{ event[4] }}</td>
+            <td>{{ event[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <h4>{{ "No events" }}</h4>
+    {% endif %}
+    {% endfor %}
+
+    <br></br>
+    <a href="{{ url_for('index') }}">Click here to return home page</a>
+</body>
+
+</html>

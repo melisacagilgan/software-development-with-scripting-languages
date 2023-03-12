@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Active Events</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<script>
+  function confirm_deactivate() {
+    var x = confirm("Are you sure you want to deactivate this event?");
+    if (x)
+      alert("Event successfully deactivated!");
+  }
+</script>
+
+<body>
+  <h1>Events</h1><br>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>City</th>
+      <th>Price</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    </tr>
+    {% for event in events%}
+    <tr>
+      <td>{{ event[1] }}</td>
+      <td>{{ event[2] }}</td>
+      <td>{{ event[7] }}</td>
+      <td>{{ cities[event[8]-1] }}</td>
+      <td>{{ event[3] }}</td>
+      <td>{{ event[4] }}</td>
+      <td>{{ event[5] }}</td>
+      <td><a href="/deactivateEvent/{{ event[0] }}" onclick="return confirm_deactivate()">Deactivate</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br></br>
+  <a href="{{ url_for('index') }}">Click here to return home page</a>
+</body>
+
+</html>

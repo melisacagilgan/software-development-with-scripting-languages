@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="static/js/event_control.js"></script>
+</head>
+
+<body>
+    <h1>Create an Event</h1><br>
+
+
+    <form action="/addevent" method="POST">
+        <label for='name'>Event name: </label>
+        <input type="text" name="name" id="name" /><br>
+        <label for='description'>Description: </label>
+        <input type="text" name="description" id="description" /> <br />
+        <label for='location'>Location: </label>
+        <input type="text" name="location" id="location" /> <br />
+        <label for='city'>City: </label>
+        <select name="city" id="city">
+            {% for city in city_list %}
+            <option value="{{ city }}">{{ city }}</option>
+            {% endfor %}
+        </select><br>
+        <label for='ticket_price'>Ticket Price: </label>
+        <input type="text" name="ticket_price" id="ticket_price" /> <br />
+        <label for='date'>Date: </label>
+        <input type="text" name="date" id="date" /> <br />
+        <label for='time'>Time: </label>
+        <input type="text" name="time" id="time" /> <br />
+        <input type="button" value="Add Event" onclick="event_control()">
+        <input type="submit" id="regbtn" value="Add Event">
+    </form>
+    <p><span id="error"></span></p>
+    <br></br>
+    <a href="{{ url_for('index') }}">Click here to return home page</a>
+</body>
+
+</html>

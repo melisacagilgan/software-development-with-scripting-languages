@@ -1,0 +1,7 @@
+latte;50
+cappuccino;50
+americano;40
+expresso;35
+sansebastiancheesecake;50
+mosaiccake;45
+carrotcake;45

@@ -1,0 +1,5 @@
+greg;b123;barista
+dave;k343;barista
+simon;7684;manager
+dogukan;d123;barista
+melisa;m123;manager

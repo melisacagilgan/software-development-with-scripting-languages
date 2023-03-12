@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1>{{ cityname }} Events</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>{{ event[1] }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ event[2] }}</td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>{{ event[7] }}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ cityname }}</td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td>{{ event[3] }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ event[4] }}</td>
+        </tr>
+        <tr>
+            <th>Time</th>
+            <td>{{ event[4] }}</td>
+        </tr>
+    </table>
+    <br></br>
+    <a href="{{ url_for('index') }}">Click here to return home page</a>
+</body>
+
+</html>
